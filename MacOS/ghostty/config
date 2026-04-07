@@ -1,0 +1,80 @@
+# Ghostty Configuration
+# Converted from kitty configuration with Catppuccin Mocha theme
+
+# Font Configuration
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 18
+font-feature = +calt
+font-feature = +liga
+
+# Font fallback for Chinese characters
+font-family-bold = JetBrainsMono Nerd Font Mono
+font-family-italic = JetBrainsMono Nerd Font Mono
+font-family-bold-italic = JetBrainsMono Nerd Font Mono
+
+# Window Appearance
+window-padding-x = 8
+window-padding-y = 8
+window-decoration = true
+macos-titlebar-style = hidden
+
+# Background
+background-opacity = 1.0
+background-blur-radius = 30
+
+# Cursor
+cursor-color = f5e0dc
+cursor-text = 1e1e2e
+cursor-style = block
+cursor-style-blink = false
+
+# Scrollback
+scrollback-limit = 100000
+
+# Theme - Catppuccin Mocha
+# Base colors
+foreground = cdd6f4
+background = 1e1e2e
+selection-foreground = 1e1e2e
+selection-background = f5e0dc
+
+# URL colors
+# ghostty uses different approach for URLs, they follow terminal colors
+
+# Normal colors
+palette = 0=#45475a
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#f9e2af
+palette = 4=#89b4fa
+palette = 5=#f5c2e7
+palette = 6=#94e2d5
+palette = 7=#bac2de
+
+# Bright colors
+palette = 8=#585b70
+palette = 9=#f38ba8
+palette = 10=#a6e3a1
+palette = 11=#f9e2af
+palette = 12=#89b4fa
+palette = 13=#f5c2e7
+palette = 14=#94e2d5
+palette = 15=#a6adc8
+
+# Tab bar
+# macos-tab-bar = true
+
+# Mouse
+mouse-hide-while-typing = true
+copy-on-select = false
+
+# Shell
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Performance
+clipboard-read = allow
+clipboard-write = allow
+
+# macOS specific
+macos-option-as-alt = true

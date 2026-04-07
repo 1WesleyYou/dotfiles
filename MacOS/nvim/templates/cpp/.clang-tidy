@@ -1,0 +1,4 @@
+Checks: 'google-*,-google-readability-todo,-google-runtime-int'
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle: file
