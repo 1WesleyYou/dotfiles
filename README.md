@@ -3,6 +3,7 @@
 > [简体中文](./README_CN.md)
 
 Personal dotfiles for **Arch Linux (Hyprland)** and **macOS** environments.
+<!-- test commit -->
 
 ## Structure
 
