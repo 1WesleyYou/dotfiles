@@ -1,0 +1,89 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.font.name": "JetBrainsMono Nerd Font, Maple Mono NF CN",
+  "theme.font.size": "1.1rem",
+  "theme.font.weight": 600,
+  "theme.bar.background": "rgba(17, 17, 27, 0.35)",
+  "theme.bar.transparent": false,
+  "bar.launcher.autoDetectIcon": false,
+  "theme.bar.outer_spacing": "0.3em",
+  "theme.bar.buttons.padding_x": "0.6rem",
+  "theme.bar.buttons.padding_y": "0.25rem",
+  "theme.bar.buttons.spacing": "0.2em",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "clock"
+      ],
+      "right": [
+        "media",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "clock"
+      ],
+      "right": [
+        "media",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "clock"
+      ],
+      "right": [
+        "media",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "notifications"
+      ]
+    }
+  },
+  "notifications.position": "top right",
+  "notifications.displayedTotal": 3,
+  "notifications.timeout": 6000,
+  "notifications.scaling": 160,
+  "bar.menus.menu.notifications.scaling": 150,
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "/usr/bin/code --use-gl=desktop",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Visual Studio Code",
+  "menus.dashboard.shortcuts.left.shortcut3.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "google-chrome-stable",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Google Chrome",
+  "menus.dashboard.shortcuts.left.shortcut2.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut2.command": "spotify-launcher",
+  "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Spotify (via launcher)",
+  "bar.launcher.icon": ""
+}

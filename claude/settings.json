@@ -1,0 +1,33 @@
+{
+  "theme": "dark",
+  "skipAutoPermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/whoami/.claude/hooks/statusline.sh"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/whoami/.claude/hooks/notify-stop.sh"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send -a 'Claude Code' -i /home/whoami/.local/share/icons/claude-code.png -u critical 'Claude Code' '需要你的确认 ⚠️'"
+          }
+        ]
+      }
+    ]
+  }
+}
