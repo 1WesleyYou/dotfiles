@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "peach": "#FAB387",
+    "yellow": "#F9E2AF",
+    "blue": "#89B4FA",
+    "green": "#A6E3A1",
+    "mauve": "#CBA6F7",
+    "pink": "#F5C2E7",
+    "yellow_warn": "#F9E2AF",
+    "red_warn": "#F38BA8",
+    "lavender": "#B4BEFE",
+    "crust": "#11111B",
+    "text": "#CDD6F4"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "foreground": "p:crust",
+          "background": "p:peach",
+          "options": {
+            "style": "folder",
+            "home_icon": "~"
+          },
+          "template": "  {{ .Path }} ",
+          "leading_diamond": "",
+          "trailing_diamond": ""
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:crust",
+          "background": "p:yellow",
+          "options": {
+            "branch_icon": " ",
+            "cherry_pick_icon": " ",
+            "commit_icon": " ",
+            "fetch_status": true,
+            "fetch_upstream_icon": false,
+            "merge_icon": " ",
+            "no_commits_icon": " ",
+            "rebase_icon": " ",
+            "revert_icon": " ",
+            "tag_icon": " "
+          },
+          "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+        },
+        {
+          "type": "claude",
+          "style": "plain",
+          "foreground": "p:crust",
+          "background": "p:blue",
+          "background_templates": [
+            "{{ if ge (int .TokenUsagePercent.String) 90 }}p:red_warn{{ end }}",
+            "{{ if and (ge (int .TokenUsagePercent.String) 70) (lt (int .TokenUsagePercent.String) 90) }}p:yellow_warn{{ end }}"
+          ],
+          "template": "  {{ .Model.DisplayName }}  ctx {{ $p := int .TokenUsagePercent.String }}{{ $s := div (mul $p 2) 5 | int }}{{ $f := div $s 8 | int }}{{ $r := mod $s 8 | int }}{{ $px := list \"\" \"▏\" \"▎\" \"▍\" \"▌\" \"▋\" \"▊\" \"▉\" }}<{{ if ge $p 90 }}#F38BA8{{ else if ge $p 70 }}#F9E2AF{{ else }}#A6E3A1{{ end }}>{{ repeat $f \"█\" }}{{ if gt $r 0 }}{{ index $px $r }}{{ end }}</><#585B70>{{ if gt $r 0 }}{{ repeat (sub 4 $f | int) \"▒\" }}{{ else }}{{ repeat (sub 5 $f | int) \"▒\" }}{{ end }}</> {{ .FormattedTokens }}/{{ if ge .ContextWindow.ContextWindowSize 1000000 }}{{ div .ContextWindow.ContextWindowSize 1000000 }}M{{ else }}{{ div .ContextWindow.ContextWindowSize 1000 }}k{{ end }} ({{ .TokenUsagePercent.String }}%) "
+        },
+        {
+          "type": "claude",
+          "style": "plain",
+          "foreground": "p:crust",
+          "background": "p:mauve",
+          "background_templates": [
+            "{{ if ge (int .RateLimits.FiveHour.UsedPercentage) 90 }}p:red_warn{{ end }}",
+            "{{ if and (ge (int .RateLimits.FiveHour.UsedPercentage) 70) (lt (int .RateLimits.FiveHour.UsedPercentage) 90) }}p:yellow_warn{{ end }}"
+          ],
+          "template": "{{ if .RateLimits.FiveHour.ResetsAt }}  5h {{ round .RateLimits.FiveHour.UsedPercentage 1 }}%{{ $s := sub .RateLimits.FiveHour.ResetsAt (now).Unix }}{{ if gt $s 3600 }} {{ div $s 3600 }}h{{ else if gt $s 60 }} {{ div $s 60 }}m{{ end }} {{ end }}"
+        },
+        {
+          "type": "claude",
+          "style": "diamond",
+          "foreground": "p:crust",
+          "background": "p:pink",
+          "background_templates": [
+            "{{ if ge (int .RateLimits.SevenDay.UsedPercentage) 90 }}p:red_warn{{ end }}",
+            "{{ if and (ge (int .RateLimits.SevenDay.UsedPercentage) 70) (lt (int .RateLimits.SevenDay.UsedPercentage) 90) }}p:yellow_warn{{ end }}"
+          ],
+          "template": "{{ if .RateLimits.SevenDay.ResetsAt }}  7d {{ round .RateLimits.SevenDay.UsedPercentage 1 }}%{{ $s := sub .RateLimits.SevenDay.ResetsAt (now).Unix }}{{ if gt $s 86400 }} {{ div $s 86400 }}d{{ else if gt $s 3600 }} {{ div $s 3600 }}h{{ end }} {{ end }}",
+          "leading_diamond": "",
+          "trailing_diamond": ""
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 4
+}

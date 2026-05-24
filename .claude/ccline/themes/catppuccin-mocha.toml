@@ -1,0 +1,169 @@
+theme = "catppuccin-mocha"
+
+[style]
+mode = "nerd_font"
+separator = " | "
+
+# Model - Mauve
+[[segments]]
+id = "model"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = ""
+
+[segments.colors.icon]
+c16 = 5
+
+[segments.colors.text]
+c16 = 5
+
+[segments.styles]
+text_bold = true
+
+[segments.options]
+
+# Directory - Blue
+[[segments]]
+id = "directory"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = "󰉋"
+
+[segments.colors.icon]
+c16 = 4
+
+[segments.colors.text]
+c16 = 12
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+
+# Git - Green
+[[segments]]
+id = "git"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = "󰊢"
+
+[segments.colors.icon]
+c16 = 2
+
+[segments.colors.text]
+c16 = 10
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+show_sha = false
+
+# Context Window - Yellow
+[[segments]]
+id = "context_window"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = ""
+
+[segments.colors.icon]
+c16 = 3
+
+[segments.colors.text]
+c16 = 11
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+
+# Usage (5h/7d rate limits) - Teal
+[[segments]]
+id = "usage"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = "󰪞"
+
+[segments.colors.icon]
+c16 = 6
+
+[segments.colors.text]
+c16 = 14
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+timeout = 2
+cache_duration = 180
+api_base_url = "https://api.anthropic.com"
+
+# Cost - Peach (yellow)
+[[segments]]
+id = "cost"
+enabled = true
+
+[segments.icon]
+plain = ""
+nerd_font = ""
+
+[segments.colors.icon]
+c16 = 3
+
+[segments.colors.text]
+c16 = 11
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+
+# Session - Lavender (bright blue)
+[[segments]]
+id = "session"
+enabled = false
+
+[segments.icon]
+plain = ""
+nerd_font = "󱦻"
+
+[segments.colors.icon]
+c16 = 12
+
+[segments.colors.text]
+c16 = 12
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
+
+# Output Style - Sky
+[[segments]]
+id = "output_style"
+enabled = false
+
+[segments.icon]
+plain = ""
+nerd_font = "󱋵"
+
+[segments.colors.icon]
+c16 = 14
+
+[segments.colors.text]
+c16 = 14
+
+[segments.styles]
+text_bold = false
+
+[segments.options]
