@@ -1,0 +1,152 @@
+{
+	// Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"INIT": {
+		"prefix": "init",
+		"body": [
+			"#!/usr/bin/env bash",
+			"",
+			"set -euo pipefail", // Fail on pipe errors
+			"par_dir=\"$(dirname \"$(readlink -f \"\\$0\")\")\"",
+			"cd \"\\$par_dir\" || exit 1", // Change to the parent directory
+			"",
+			"$0"
+		],
+		"description": "Initialize a shell script with common settings"
+	},
+	"INFO": {
+		"prefix": "info",
+		"body": [
+			"echo -e \"[\\033[32mINFO\\033[0m]$1\"",
+		],
+		"description": "Log an informational message"
+	},
+	"ERROR": {
+		"prefix": "err",
+		"body": [
+			"echo -e \"[\\033[31mERROR\\033[0m]$1\"",
+		],
+		"description": "Log an error message"
+	},
+	"DEBUG": {
+		"prefix": "debug",
+		"body": [
+			"echo -e \"[\\033[36mDEBUG\\033[0m]$1\"",
+		],
+		"description": "Log a debug message"
+	},
+	"WARNING": {
+		"prefix": "warn",
+		"body": [
+			"echo -e \"[\\033[33mWARNING\\033[0m]$1\"",
+		],
+		"description": "Log a warning message"
+	},
+	"SUCCESS": {
+		"prefix": "success",
+		"body": [
+			"echo -e \"[\\033[32mSUCCESS\\033[0m]$1\"",
+		],
+		"description": "Log a success message"
+	},
+	"EXPORT": {
+		"prefix": "export",
+		// 1. add environment variable in the current terminal session
+		// 2. add environment variable to the .bashrc file
+		"body": [
+			"export ${1:VAR}=\"${2:VALUE}\"",
+			"if grep -q \"^export ${1:VAR}=\" ~/.bashrc; then",
+			"  echo -e \"[\\033[33mWARNING\\033[0m] Environment variable ${1:VAR} already exists in .bashrc\"",
+			"else",
+			"  echo \"export ${1:VAR}='${2:VALUE}'\" >> ~/.bashrc",
+			"  echo -e \"[\\033[32mSUCCESS\\033[0m] Environment variable ${1:VAR} set to '${2:VALUE}'\"",
+			"fi",
+			"echo -e \"[\\033[32mSUCCESS\\033[0m] Environment variable ${1:VAR} set to '${2:VALUE}'\"",
+		],
+		"description": "Export an environment variable"
+	},
+	"PATH": {
+		"prefix": "path",
+		"body": [
+			"export PATH=\"${1:PATH}:$PATH\"",
+			"echo -e \"[\\033[32mSUCCESS\\033[0m] PATH updated with '${1:PATH}'\"",
+			// check if the PATH variable is already set in .bashrc
+			"if grep -q \"export PATH='${1:PATH}:\" ~/.bashrc; then",
+			"  echo -e \"[\\033[33mWARNING\\033[0m] PATH already contains '${1:PATH}'\"",
+			"else",
+			"  echo \"export PATH='${1:PATH}:$PATH'\" >> ~/.bashrc",
+			"  echo -e \"[\\033[32mSUCCESS\\033[0m] PATH updated with '${1:PATH}'\"",
+			"fi",
+		],
+		"description": "Add a directory to the PATH environment variable"
+	},
+	"FEXIST": {
+		"prefix": "fexist",
+		"body": [
+			"if [ ! -f \"${1:file_name}\" ]; then",
+			"  echo -e \"[\\033[31mERROR\\033[0m] File does not exist: ${1:FILE}\"",
+			"  exit 1",
+			"fi",
+			"$0"
+		],
+		"description": "check if the file exists and exit if it does not",
+	},
+	"DEXIST": {
+		"prefix": "dexist",
+		"body": [
+			"if [ ! -d \"${1:dir_name}\" ]; then",
+			"  echo -e \"[\\033[31mERROR\\033[0m] Directory does not exist: ${1:DIR}\"",
+			"  exit 1",
+			"fi",
+			"$0"
+		],
+		"description": "check if the directory exists and exit if it does not",
+	},
+	"FOR_NUM": {
+		"prefix": "fornumber",
+		"body": [
+			"for i in $(seq 1 ${1:10}); do",
+			"$1",
+			"done",
+		],
+		"description": "Loop from 1 to a specified number",
+	},
+	"PARDIR": {
+		"prefix": "pardir",
+		"body": [
+			"par_dir=\"$(dirname \"$(readlink -f \"$0\")\")",
+		],
+		"description": "Change to the parent directory of the script's location"
+	},
+	"ISDEF": {
+		"prefix": "isdef",
+		"body": [
+			"if [ -z \"${1:VAR}\" ]; then",
+			"  echo -e \"[\\033[31mERROR\\033[0m] Variable ${1:VAR} is not defined\"",
+			"  exit 1",
+			"fi",
+			"$0"
+		],
+		"description": "Check if a variable is defined and exit if it is not"
+	},
+	// regex
+	"REGEX-FLOAT": {
+		"prefix": "regex-float",
+		"body": [
+			"([0-9]+(\\.[0-9]+)?)",
+		],
+		"description": "Regular expression to match a floating point number"
+	}
+	// awk cmd snippets
+}
